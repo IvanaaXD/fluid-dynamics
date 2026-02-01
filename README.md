@@ -55,6 +55,73 @@ A Rust-based tool (using the `plotters` library) to generate heatmaps of velocit
 
 ---
 
+
+---
+
+## Project Structure
+
+* `rust_impl/` – Rust implementation (Sequential & Parallel via Rayon).
+* `python_impl/` – Python implementation (Sequential & Shared Memory Multiprocessing).
+* `reports/` – Automatically generated CSV reports and scaling plots.
+* `data/` – Temporary simulation data used for visualization.
+* `run_benchmarks.py` – Main Python script to execute all benchmarking tests.
+
+## Prerequisites
+
+* **Rust** (with `cargo` package manager).
+* **Python 3.10+**.
+* **Python Libraries:** `numpy`, `matplotlib`.
+
+Install dependencies:
+
+```bash
+pip install numpy matplotlib
+
+```
+
+## Running Simulations and Benchmarking
+
+### 1. Automatic Testing (Recommended)
+
+The main script executes both Strong and Weak scaling tests (30 samples per configuration), generates CSV reports, and produces the final acceleration plots:
+
+```bash
+python run_benchmarks.py
+
+```
+
+All results will be saved in the `reports/` directory.
+
+### 2. Manual Execution (Rust)
+
+To run the simulation with specific parameters (threads, width, height):
+
+```bash
+cd rust_impl
+cargo run --release -- <threads> <width> <height>
+
+```
+
+Upon completion, the visualization will be saved as `reports/fluid_flow.png`.
+
+### 3. Manual Execution (Python)
+
+```bash
+cd python_impl
+python seq_lbm.py  # Sequential version
+python par_lbm.py  # Parallel Shared Memory version
+
+```
+
+## Visualization
+
+The visualizer is written in Rust using the `plotters` library and generates a velocity magnitude heatmap.
+
+* **Blue zones** indicate lower velocity (stagnation near the obstacle).
+* **Red zones** indicate areas of accelerated flow.
+
+---
+
 **Student:** Ivana Radovanovic
 
 **Index:** SV 23/2022
