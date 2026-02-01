@@ -1,0 +1,1 @@
+D:\PROJEKTI\Napredne\ tehnike\ programiranja\FluidDynamics\rust_impl\target\debug\lbm_simulation.exe: D:\PROJEKTI\Napredne\ tehnike\ programiranja\FluidDynamics\rust_impl\src\main.rs D:\PROJEKTI\Napredne\ tehnike\ programiranja\FluidDynamics\rust_impl\src\sequential.rs
